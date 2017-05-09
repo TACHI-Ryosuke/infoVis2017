@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>W06: task02</title>
+</head>
+<body>
+   <script src="three.min.js"></script>
+   <script src="change_color.js"></script>
+   <script src="draw_cube.js"></script>
+   <script>
+main();
+</script>
+</body>
+</html>
