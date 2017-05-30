@@ -122,29 +122,6 @@ function Isosurfaces( volume, isovalue )
 
     function interpolated_vertex( v0, v1, s )
     {
-        var lines = volume.resolution.x;
-        var slices = volume.resolution.x * volume.resolution.y;
-        var s0=volume.values[(v0.z*slices)+(v0.y*lines)+v0.x][0];
-        var s1=volume.values[(v1.z*slices)+(v1.y*lines)+v1.x][0];
-        var v = new THREE.Vector3(v1.x-v0.x,v1.y-v0.y,v1.z-v0.z );
-        var matthew;
-        var l ;
-        if(s0<s1){
-
-            l=s1-s0;
-            matthew=(s-s0)/l;
-
-        }else{
-
-            l=s0-s1;
-            matthew=1 - ((s-s1)/l);
-
-        }
-        //console.log(parseInt(1/matthew));
-        v.x = v0.x+v.x*matthew;
-        v.y = v0.y+v.y*matthew;
-        v.z = v0.z+v.z*matthew;
-        return v;
-
+        return new THREE.Vector3().addVectors( v0, v1 ).divideScalar( 2 );
     }
 }
